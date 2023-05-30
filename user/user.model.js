@@ -3,7 +3,7 @@ import { areValidCategories, categories } from "../constants";
 
 const userSchema = new mongoose.Schema({
   name: { type: String, default: null },
-  email: { type: String, unique: true },
+  email: { type: String, unique: true, sparse: true },
   password: { type: String },
   token: { type: String, default: null },
   categories: {type: [String], default: [], 

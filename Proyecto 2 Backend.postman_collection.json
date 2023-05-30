@@ -1,0 +1,480 @@
+{
+	"info": {
+		"_postman_id": "7cbb9041-ac95-4a01-9e15-eba573bf005a",
+		"name": "Proyecto 2 Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18710071"
+	},
+	"item": [
+		{
+			"name": "/user",
+			"item": [
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/?id=647558bc6580f7dd3524f1d1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "647558bc6580f7dd3524f1d1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log in user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/login?email=josorio@gmail.com&password=somethingspooky",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "josorio@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "somethingspooky"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"David Ferrer\",\n    \"email\": \"dferrer@gmail.com\",\n    \"password\": \"somethingspooky\",\n    \"categories\": [\"belleza\", \"oficina\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify user",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTU4YmM2NTgwZjdkZDM1MjRmMWQxIiwiZW1haWwiOiJkZmVycmVyQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMjA1NCwiZXhwIjoxNjg1NDU1MjU0fQ.nPjaFreDw3zagshrskqgfa6sB5wjbj27oZZC0CGfb9U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"dferrer@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTU4YmM2NTgwZjdkZDM1MjRmMWQxIiwiZW1haWwiOiJkZmVycmVyQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMjE4MSwiZXhwIjoxNjg1NDU1MzgxfQ._xqF72wHYQCMUM5TlZukLJDkDX_03zS5jPZUMBT8J7U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6473d9da4cdc23a40f0aed23\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/product",
+			"item": [
+				{
+					"name": "POST product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTU5OWM5N2Y1ZWVmMDI5MmJiNGYxIiwiZW1haWwiOiJkZmVycmVyQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMjQ3OSwiZXhwIjoxNjg1NDU1Njc5fQ.HG8Q1polxUMXm3VfvQ55yDg0ZTe_SNcO0ktn0vBMS1g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"algo\",\n    \"category\": \"belleza\",\n    \"owner\": \"6475599c97f5eef0292bb4f1\",\n    \"price\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/product/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH product",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTU5OWM5N2Y1ZWVmMDI5MmJiNGYxIiwiZW1haWwiOiJkZmVycmVyQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMjYxNSwiZXhwIjoxNjg1NDU1ODE1fQ.iyZJOshO46Ere0AAG32svyA599a-J4Fp24ONV84JAgM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"64755a8a97f5eef0292bb50c\",\n    \"rating\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/product/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTU5OWM5N2Y1ZWVmMDI5MmJiNGYxIiwiZW1haWwiOiJkZmVycmVyQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMjQzMCwiZXhwIjoxNjg1NDU1NjMwfQ.Ef8iKabWJebqDfwZdsR6nt9KTp01R0bsqCGqOrkjtOU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"647559dc97f5eef0292bb4f9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/product/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product/?id=64755a8a97f5eef0292bb50c",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "64755a8a97f5eef0292bb50c"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product categories by user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTU5OWM5N2Y1ZWVmMDI5MmJiNGYxIiwiZW1haWwiOiJkZmVycmVyQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMjQ3OSwiZXhwIjoxNjg1NDU1Njc5fQ.HG8Q1polxUMXm3VfvQ55yDg0ZTe_SNcO0ktn0vBMS1g",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/product/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/product/search",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/delivery",
+			"item": [
+				{
+					"name": "User creates delivery",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTQzYTFmOTExZDZkMGMyMGVlOWRiIiwiZW1haWwiOiJqb3NvcmlvQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMzcwNSwiZXhwIjoxNjg1NDU2OTA1fQ.LBGFzb15X_4pJHsmwJU1FdJkL7t7gJIugRXnE8LCzoI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": \"6473f082a49adfdcac78d152\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/delivery/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify delivery",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTQzYTFmOTExZDZkMGMyMGVlOWRiIiwiZW1haWwiOiJqb3NvcmlvQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMzcwNSwiZXhwIjoxNjg1NDU2OTA1fQ.LBGFzb15X_4pJHsmwJU1FdJkL7t7gJIugRXnE8LCzoI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6475611788d2eefca060423b\",\n    \"rating\": 5,\n    \"comments\": [\"joda firme\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/delivery/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get delivery by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTQzYTFmOTExZDZkMGMyMGVlOWRiIiwiZW1haWwiOiJqb3NvcmlvQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMzcwNSwiZXhwIjoxNjg1NDU2OTA1fQ.LBGFzb15X_4pJHsmwJU1FdJkL7t7gJIugRXnE8LCzoI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/delivery/?id=6475611788d2eefca060423b",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6475611788d2eefca060423b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all deliveries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjQ3NTQzYTFmOTExZDZkMGMyMGVlOWRiIiwiZW1haWwiOiJqb3NvcmlvQGdtYWlsLmNvbSIsImlhdCI6MTY4NTQxMzcwNSwiZXhwIjoxNjg1NDU2OTA1fQ.LBGFzb15X_4pJHsmwJU1FdJkL7t7gJIugRXnE8LCzoI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/delivery/bulk?before=2023-5-29&after=2023-5-28",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"delivery",
+								"bulk"
+							],
+							"query": [
+								{
+									"key": "before",
+									"value": "2023-5-29"
+								},
+								{
+									"key": "after",
+									"value": "2023-5-28"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

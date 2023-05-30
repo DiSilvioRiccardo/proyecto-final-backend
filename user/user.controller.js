@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 function createToken(user) {
     return jwt.sign(
         { user_id: user._id, email: user.email },
-        process.env.SECRET_KEY,
+        "quemasprofecomolevabacanoelcurso,vaparaelspeechdegrado",
         {
           expiresIn: "12h",
         }
@@ -69,7 +69,7 @@ export async function patchUser(req, res){
     } catch (e){
         return res.status(400).json({"error": e.toString()});
     }
-    return res.status(200).json(req.user);
+    return res.status(200).json(await User.findById(req.user._id));
 } 
 
 export async function deleteUser(req, res){

@@ -9,7 +9,7 @@ export async function verifyToken (req, res, next) {
       return res.status(403).send("A token is required for authentication");
     }
     try {
-      const decoded = jwt.verify(token.split(" ")[1], process.env.SECRET_KEY);
+      const decoded = jwt.verify(token.split(" ")[1], "quemasprofecomolevabacanoelcurso,vaparaelspeechdegrado");
       req.user = await User.findById(decoded.user_id);
     } catch (err) {
       return res.status(401).send("Invalid Token");

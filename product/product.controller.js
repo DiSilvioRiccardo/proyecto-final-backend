@@ -16,9 +16,9 @@ export async function createProduct(req,res) {
     
         await product.save();
 
-        res.status(200).json(product);
+        return res.status(200).json(product);
     }catch (e) {
-        res.status(500).json({"error": e.toString()})
+        return res.status(500).json({"error": e.toString()})
     }
 }
 
@@ -27,15 +27,15 @@ export async function getProduct(req,res) {
     const { id } = req.query;
 
     if (!(id)) {
-      res.status(400).send("All input is required");
+      return res.status(400).send("All input is required");
     }
 
     const product = await Product.findById(id);
     
     if (product){
-        res.status(200).json(product);
+        return res.status(200).json(product);
     }else{
-        res.status(404).json({"error": "product not found"});
+        return res.status(404).json({"error": "product not found"});
     }
 
 }
@@ -44,10 +44,14 @@ export async function searchProduct(req, res){
     const { id, searchText, category } = req.query;
     let query = {};
     id != null ? query.owner = id : null
-    searchText != null ? query.searchText = searchText : null
     category != null ? query.category = category : null
-    console.log(query)
-    let products  = await Product.find(query);
+
+    if (searchText){
+        query.name = {$regex: searchText, $options: 'i'};
+    }
+
+    let products = await Product.find(query);
+    products.sort((product1, product2) => product2.rating - product1.rating);
     return res.status(200).json(products);
 }
 
